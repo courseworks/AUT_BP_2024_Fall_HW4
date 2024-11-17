@@ -18,7 +18,9 @@ include_directories(include/)
 add_executable(main
         src/main.cpp
         src/unit_test.cpp
-        src/example.c
+        src/Q1_SwapArrays.c
+        src/Q2_TransposeMatrix.c 
+        src/Q3_SortArray.c
 )
 
 # Set compiler flags for C++ and c.
