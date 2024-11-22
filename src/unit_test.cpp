@@ -146,7 +146,6 @@ TEST(Swap2DArraysTest, NoPartialSwapOnFailure) {
 	EXPECT_TRUE(arraysAreEqual((int *)array2, (int *)originalArray2, 2, 3))
 		<< "You returned false, but you have partially changed the arrays, you "
 		   "have to check the conditions at first";
-	;
 }
 
 // #####################################
@@ -169,7 +168,7 @@ TEST(TransposeMatrixTest, SuccessfulTranspose3x3) {
 
 	int expectedMatrix[3][3] = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
 
-	bool result = transposeMatrix(int *matrix, 3);
+	bool result = transposeMatrix((int *)matrix, 3);
 
 	EXPECT_TRUE(result)
 		<< "Expected transposeMatrix to return true for valid input.";
@@ -305,7 +304,7 @@ TEST(TransposeMatrixTest, NullPointerMatrix) {
 							"nullptr before using it.";
 }
 
-// Test Case 12: Same Element Values After Double Transpose
+// Test Case 11: Same Element Values After Double Transpose
 TEST(TransposeMatrixTest, DoubleTransposeReturnsOriginalMatrix) {
 	int matrix[3][3] = {{5, 4, 3}, {2, 1, 0}, {-1, -2, -3}};
 
@@ -325,7 +324,7 @@ TEST(TransposeMatrixTest, DoubleTransposeReturnsOriginalMatrix) {
 		   "state.";
 }
 
-// Test Case 13: Matrix with Maximum Integer Values
+// Test Case 12: Matrix with Maximum Integer Values
 TEST(TransposeMatrixTest, MatrixWithMaxIntValues) {
 	int matrix[2][2] = {{INT_MAX, INT_MAX}, {INT_MAX, INT_MAX}};
 
@@ -340,7 +339,7 @@ TEST(TransposeMatrixTest, MatrixWithMaxIntValues) {
 		   "transposed.";
 }
 
-// Test Case 14: Matrix with Mixed Positive and Negative Values
+// Test Case 13: Matrix with Mixed Positive and Negative Values
 TEST(TransposeMatrixTest, MatrixWithMixedValues) {
 	int matrix[2][2] = {{0, -1}, {1, 0}};
 
@@ -360,6 +359,9 @@ TEST(TransposeMatrixTest, MatrixWithMixedValues) {
 
 // Helper function to check if an array is sorted
 bool isArraySorted(double *array, int size) {
+	if (array == nullptr || size < 0) {
+		return false;
+	}
 	for (int i = 1; i < size; i++) {
 		if (array[i - 1] > array[i]) {
 			return false;
