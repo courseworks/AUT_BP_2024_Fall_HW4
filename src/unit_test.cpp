@@ -436,7 +436,7 @@ TEST(SortArrayTest, MergeSortCorrectness) {
 
 // Test Case 5: Invalid Algorithm Character
 TEST(SortArrayTest, InvalidAlgorithmCharacter) {
-	double array[] = {1.0, 2.0, 3.0};
+	double array[] = {1.0, 2.0, 3.0, -1.0, 10.0, 9.0, 5.0};
 	int size = sizeof(array) / sizeof(array[0]);
 	char algorithm = 'x';
 
